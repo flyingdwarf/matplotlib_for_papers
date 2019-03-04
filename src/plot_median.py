@@ -1,22 +1,26 @@
 import glob
 from pylab import *
 
+
 def load(dir):
     f_list = glob.glob(dir + '/*/*/bestfit.dat')
     num_lines = sum(1 for line in open(f_list[0]))
-    i = 0;
-    data = np.zeros((len(f_list), num_lines)) 
+    i = 0
+    data = np.zeros((len(f_list), num_lines))
     for f in f_list:
-        data[i, :] = np.loadtxt(f)[:,1]
+        data[i, :] = np.loadtxt(f)[:, 1]
         i += 1
     return data
 
 # compute the median of each column
+
+
 def med(data):
     median = np.zeros(data.shape[1])
     for i in range(0, len(median)):
         median[i] = np.median(data[:, i])
     return median
+
 
 data_low_mut = load('data/low_mut')
 data_high_mut = load('data/high_mut')

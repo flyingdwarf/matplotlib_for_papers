@@ -5,6 +5,8 @@ import glob
 from pylab import *
 
 # a simple function to load our files
+
+
 def load(dir):
     # example : exp_9/node05_2014-07-15_16_42_48_5178/bestfit.dat
     f_list = glob.glob(dir + '/*/*/bestfit.dat')
@@ -12,6 +14,7 @@ def load(dir):
     for f in f_list:
         d += [np.loadtxt(f)]
     return d
+
 
 # load our data
 data_low_mut = load('data/low_mut')
